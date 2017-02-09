@@ -1,0 +1,33 @@
+<div class = "display5">
+    <ul class = "list-unstyled">
+    <% @microposts.each do |micropost| %>
+        <li class = "display_micropost3">
+          <div class = "display_micropost">
+            <%= link_to image_tag( micropost.picture, alt: micropost.name,
+                        class: "display_micropost1"), micropost_path(micropost) %>
+
+
+            <div class = "header">
+              <h3><%= link_to micropost.name, micropost_path(micropost)%></h3>
+            </div>
+
+            <div class = "header">
+              <ul class = "list-unstyled">
+                <li><%= image_tag(micropost.user.avatar, class: "avatar2")%></li>
+                <li><small> Design by </small><%= micropost.user.name %></li>
+              </ul>
+            </div>
+
+            <ul class = "list-unstyled header">
+              <li class = "display_icon">
+                <ul class = "list-unstyled header">
+                  <li class = "display_icon icon">
+                    <%= social_share_button_tag(micropost.name) %>
+                  </li>
+                </ul>
+            </ul>
+          </div>
+        </li>
+    <% end %>
+    </ul>
+</div>

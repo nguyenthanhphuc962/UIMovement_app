@@ -1,0 +1,25 @@
+<% provide(:title, "All users") %>
+
+<%= will_paginate @users %>
+
+<div class = "row display2">
+  <div class = "col-md-12">
+    <ul class = "list-unstyled">
+      <% @users.each do |user| %>
+
+        <li>
+          <%= link_to image_tag(user.avatar, class: "avatar4"), user_path(user) %>
+          <%= link_to user.name, user_path(user) %>
+          <% if current_user.admin? && !current_user?(user) %>
+            | <%= link_to "Delete", user_path(user), method: :delete,
+                data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </li>
+        <div class = "divider"></div>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<%= will_paginate @users %>

@@ -1,0 +1,38 @@
+<footer class = "footer">
+  <nav class = "navbar navbar-bottom divider2 background2"
+  <div class = "container-fluid">
+
+    <ul class = "nav navbar-nav list-unstyled">
+      <li>
+        <p class = "header"><%= link_to "About", "#" %></p>
+        <p class = "header"><%= link_to "Sponsor", "#" %></p>
+      </li>
+      <br>
+      <div class = "row">
+        <div class = "col-md-6 col-md-offset-3">
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Search for UI Movement",
+              class: "form-control") %>
+          <% end %>
+        </div>
+      </div>
+      <br>
+      <% if logged_in? %>
+        <li class = "header">
+          <span class = "display1">
+            <%= link_to image_tag(current_user.avatar, class: "avatar2"),
+                 user_path(current_user) %>
+          </span>
+          <span class = "display1">
+            <%= button_to "Logout", user_path(current_user), method: :delete, class: "btn btn-primary" %>
+          </span>
+          <span class = "display1">
+            <%= button_to "Submit UI", new_micropost_path, method: :get, class: "btn btn-primary" %>
+          </span>
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
+  </nav>
+</footer>

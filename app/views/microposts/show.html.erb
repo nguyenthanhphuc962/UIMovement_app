@@ -1,0 +1,44 @@
+
+<% provide(:title, @micropost.name) %>
+<div class = "display2">
+  <div class = "header1">
+    <h1><%= @micropost.name %></h1>
+  </div>
+
+  <div class = "row">
+    <div class = "col-md-8">
+      <%= image_tag(@micropost.picture, alt: @micropost.name) %>
+
+
+      <div class = "header">
+          <h3><%= link_to @micropost.name, micropost_path(@micropost)%></h3>
+      </div>
+
+      <div class = "header">
+        <ul class = "list-unstyled">
+          <%= image_tag(@micropost.user.avatar, class: "avatar2") %>
+          <small> Design by </small><%= @micropost.user.name %>
+        </ul>
+      </div>
+
+      <ul class = "list-unstyled header">
+        <li class = "display_icon icon">
+          <%= social_share_button_tag(@micropost.name) %>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class = "col-md-4">
+      <% @microposts.each do |micropost| %>
+        <div class = "display_micropost3">
+          <%= link_to image_tag(micropost.picture.url, class: "display_micropost4"),
+              micropost_path(micropost) %>
+        </div>
+        <div class = "divider1"></div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

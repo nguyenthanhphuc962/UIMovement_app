@@ -14,6 +14,26 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'simple_form', '~> 3.4'
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+
+gem 'coffee-script-source', '1.8.0'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+
+gem 'paperclip', '~> 5.1'
+
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+gem 'fog',                     '1.36.0'
+
+gem 'social-share-button', '~> 0.8.8'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

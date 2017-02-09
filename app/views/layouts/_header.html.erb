@@ -1,0 +1,104 @@
+<nav class = "navbar navbar-fixed-top background2">
+  <div class = "container-fluid">
+    <div class = "navbar-header">
+      <div class = "logo">
+        <a href = "root_path"><p class = "UI">UI</p></a>
+      </div>
+
+    </div>
+
+    <ul class = "nav navbar-nav">
+      <li><%= link_to "UI Movement", root_path, class: "movement" %></li>
+
+      <li class = "display-search">
+        <%=form_tag(search_path, method: :get) do  %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search UI Movement",
+              class: "form-control search" %>
+        <% end %>
+      </li>
+
+    </ul>
+
+    <ul class = "nav navbar-nav navbar-right">
+      <li class = "dropdown">
+        <a href = "#", class = "dropdown-toggle" data-toggle = "dropdown">
+          <b>About</b> <b class = "caret"></b>
+        </a>
+
+        <ul class = "dropdown-menu">
+          <li><%= link_to "About", "#" %></li>
+          <li><%= link_to "Sponsor us", "#" %></li>
+          <li class = "divider"></li>
+          <ul class = "list-unstyled ">
+
+            <li>
+              <a href = "#">
+              <%= image_tag("rss.png", alt: "Rss", class: "image") %>
+              <p class = "display about">Rss Feed</p>
+              </a>
+            </li>
+
+            <li>
+              <a href = "https://www.facebook.com/uimovement/" target="_blank">
+                <%= image_tag("facebook.png", alt: "Facebook", class: "image") %>
+                <p class = "display about">Facebook</p>
+              </a>
+            </li>
+
+            <li>
+              <a href = "https://twitter.com/uimovement" target="_blank">
+                <%= image_tag("twitter.png", alt: "Twitter", class: "image") %>
+                <p class = "display about">Twitter</p>
+              </a>
+            </li>
+
+            <li>
+              <a href = "https://www.instagram.com/uimovement/" target="_blank">
+                <%= image_tag("instagram.png", alt: "Instagram", class: "image") %>
+                <p class = "display about">Instagram</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </ul>
+      </li>
+
+      <li>
+        <% if logged_in? %>
+          <span class = "display1 avatar1">
+            <%= link_to image_tag(current_user.avatar, class: "avatar2"),
+                                              user_path(current_user) %>
+          </span>
+
+          <span class = "display1">
+            <%= button_to "Submit UI", new_micropost_path, class: "btn btn-primary", method: :get %>
+          </span>
+
+          <span class = "display1">
+            <%= button_to "Settings", edit_user_path(current_user), class: "btn btn-primary", method: :get %>
+          </span>
+
+          <span class = "display1">
+            <%= button_to "Log out", logout_path, method: :delete,
+              data: { confirm: "Are your sure?"}, class: "btn btn-primary" %>
+          <span>
+
+
+        <% else %>
+          <span class = "display1">
+            <%= button_to "Log in", login_path, class: "btn btn-primary", method: :get %>
+          </span>
+
+          <span class = "display1">
+            <%= button_to "Sign up", new_user_path, class: "btn btn-primary", method: :get %>
+          </span>
+
+        <% end %>
+      </li>
+
+    </ul>
+
+  </div>
+  <div class = "nav-border"></div>
+</nav>
