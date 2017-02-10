@@ -5,7 +5,7 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true
   validates :category_id, presence: true
    mount_uploader :picture, PictureUploader
-  validates :picture, presence: true, allow_nil: true, uniqueness: true
+  validates :picture, presence: true, allow_nil: true
   validate :picture_size
 
 
