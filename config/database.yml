@@ -85,6 +85,8 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  database: db/production.sqlite3
   database: UIMovement_production
   username: UIMovement
   password: <%= ENV['UIMOVEMENT_DATABASE_PASSWORD'] %>
