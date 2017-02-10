@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update]
 
   def show
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.order("created_at DESC").paginate(page: params[:page])
   end
 
   def new
