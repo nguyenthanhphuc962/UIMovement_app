@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'login' => "sessions#create"
   delete 'logout' => "sessions#destroy"
   get 'search' => "microposts#search"
+  get 'about' => "static_pages#about"
+  get 'sponsor' => "static_pages#sponsor"
   resources :users
   resources :microposts
   resources :password_resets, only: [:new, :create, :edit, :update]

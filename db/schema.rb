@@ -24,14 +24,10 @@ ActiveRecord::Schema.define(version: 20170208062225) do
 
   create_table "microposts", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "category_id"
-    t.string   "micropost_img_file_name"
-    t.string   "micropost_img_content_type"
-    t.integer  "micropost_img_file_size"
-    t.datetime "micropost_img_updated_at"
     t.string   "picture"
   end
 
