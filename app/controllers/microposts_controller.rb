@@ -2,6 +2,7 @@ class MicropostsController < ApplicationController
 before_action :find_micropost, only: [:show, :edit, :update, :destroy]
 before_action :logged_in_user, only: [:create, :destroy]
 
+
   def show
     @microposts = Micropost.order("created_at DESC").take(6)
   end
