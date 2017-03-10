@@ -12,6 +12,7 @@
       <%= f.label :category_id, "Select a category" %><br>
       <div class = "file_field">
         <%= select_tag(:category_id, options_for_select(@categories), prompt: "Select a category") %>
+        <!--<%= f.collection_select :category_id, Category.all, :id, :name  %>-->
       </div>
 
       <br>

@@ -14,6 +14,8 @@
 
 
 <div class = "display6">
+
+
     <ul class = "list-unstyled">
     <% @microposts.each do |micropost| %>
         <li class = "display_micropost3">
@@ -37,11 +39,12 @@
               <li class = "display_icon icon">
                 <% id = micropost.id %>
                 <%= social_share_button_tag(micropost.name) %>
+          
               </li>
 
             </ul>
           </div>
         </li>
     <% end %>
-    </ul>
+  </ul>
 </div>

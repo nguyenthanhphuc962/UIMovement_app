@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.3.3)
+    CFPropertyList (2.3.5)
     actionmailer (4.2.5.1)
       actionpack (= 4.2.5.1)
       actionview (= 4.2.5.1)
@@ -40,6 +40,14 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (6.7.0)
       execjs
+    aws-sdk (2.8.4)
+      aws-sdk-resources (= 2.8.4)
+    aws-sdk-core (2.8.4)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.8.4)
+      aws-sdk-core (= 2.8.4)
+    aws-sigv4 (1.0.0)
     bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -55,6 +63,13 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    carrierwave-dropbox (1.2.1)
+      carrierwave (~> 0.9)
+      dropbox-sdk (~> 1.6)
+    carrierwave_direct (0.0.15)
+      carrierwave
+      fog
+      uuidtools
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -67,24 +82,29 @@ GEM
     coffee-script-source (1.8.0)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
+    dropbox-sdk (1.6.5)
+      json
     erubis (2.7.0)
     excon (0.54.0)
     execjs (2.7.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.36.0)
+    fog (1.38.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
+      fog-cloudatcost (~> 0.1.0)
       fog-core (~> 1.32)
       fog-dynect (~> 0.0.2)
       fog-ecloud (~> 0.1)
       fog-google (<= 0.1.0)
       fog-json
       fog-local
+      fog-openstack
       fog-powerdns (>= 0.1.1)
       fog-profitbricks
+      fog-rackspace
       fog-radosgw (>= 0.0.2)
       fog-riakcs
       fog-sakuracloud (>= 0.0.4)
@@ -94,10 +114,10 @@ GEM
       fog-terremark
       fog-vmfusion
       fog-voxel
+      fog-vsphere (>= 0.4.0)
       fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
     fog-aliyun (0.1.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -115,6 +135,11 @@ GEM
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
+    fog-cloudatcost (0.1.2)
+      fog-core (~> 1.36)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
     fog-core (1.43.0)
       builder
       excon (~> 0.49)
@@ -135,6 +160,10 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.3.1)
       fog-core (~> 1.27)
+    fog-openstack (0.1.20)
+      fog-core (>= 1.40)
+      fog-json (>= 1.0)
+      ipaddress (>= 0.8)
     fog-powerdns (0.1.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -142,6 +171,11 @@ GEM
     fog-profitbricks (3.0.0)
       fog-core (~> 1.42)
       fog-json (~> 1.0)
+    fog-rackspace (0.1.4)
+      fog-core (>= 1.35)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
     fog-radosgw (0.0.5)
       fog-core (>= 1.21.0)
       fog-json
@@ -171,7 +205,10 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-xenserver (0.2.3)
+    fog-vsphere (1.7.1)
+      fog-core
+      rbvmomi (~> 1.9)
+    fog-xenserver (0.3.0)
       fog-core
       fog-xml
     fog-xml (0.1.2)
@@ -186,6 +223,11 @@ GEM
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jmespath (1.3.1)
+    jquery-fileupload-rails (0.4.7)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -240,9 +282,19 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
+    rbvmomi (1.10.0)
+      builder (~> 3.0)
+      json (>= 1.8)
+      nokogiri (~> 1.5)
+      trollop (~> 2.1)
     rdoc (4.3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    s3_direct_upload (0.1.7)
+      coffee-rails (>= 3.1)
+      jquery-fileupload-rails (~> 0.4.1)
+      rails (>= 3.1)
+      sass-rails (>= 3.1)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -277,6 +329,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    trollop (2.1.2)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -286,6 +339,7 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    uuidtools (2.1.5)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -298,20 +352,24 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aws-sdk
   bcrypt (~> 3.1, >= 3.1.11)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   bootstrap-will_paginate (~> 0.0.10)
   byebug
   carrierwave (~> 0.10.0)
+  carrierwave-dropbox
+  carrierwave_direct
   coffee-rails (~> 4.1.0)
   coffee-script-source (= 1.8.0)
-  fog (= 1.36.0)
+  fog
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (~> 4.3)
   paperclip (~> 5.1)
   pg (~> 0.15)
   rails (= 4.2.5.1)
+  s3_direct_upload
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 3.4)
@@ -325,4 +383,4 @@ DEPENDENCIES
   will_paginate (~> 3.1, >= 3.1.5)
 
 BUNDLED WITH
-   1.13.6
+   1.14.5

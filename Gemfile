@@ -30,9 +30,21 @@ gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
-gem 'fog',                     '1.36.0'
+
+#gem "fog-aws"
+
+gem 'aws-sdk'
+
+gem 's3_direct_upload'
+
+gem "fog"
+gem 'carrierwave_direct'
 
 gem 'social-share-button', '~> 0.8.8'
+
+gem 'carrierwave-dropbox'
+
+#gem 'sidekiq'
 
 gem 'taps', '~> 0.3.24'
 # Use jquery as the JavaScript library
