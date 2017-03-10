@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
     region:                'us-west-2'                 # optional, defaults to 'us-east-1'
 
   }
-  #config.cache_dir = "#{Rails.root}/tmp/uploads"
+  config.cache_dir = "#{Rails.root}/tmp/uploads"
   config.fog_directory  = 'uimovement-app'
 end
 
