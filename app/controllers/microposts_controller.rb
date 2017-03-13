@@ -19,7 +19,7 @@ before_action :logged_in_user, only: [:create, :destroy]
   def new
     @micropost = current_user.microposts.build
     @categories = Category.all.map { |c| [c.name, c.id] }
-  
+
   end
 
   def create
