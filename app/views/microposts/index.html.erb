@@ -1,50 +1,54 @@
 
 
+<div class = "row">
+  <div class = "col-md-12">
 
-
-<ul class="nav nav-tabs display2">
-  <li role="presentation" class="<%= 'active' if params[:category].blank? %> "><a href="/">All designs</a></li>
-  <% Category.all.each do |category| %>
-      <li role="presentation" class="hidden-xs <%= 'active' if params[:category] == category.name %>">
-        <%= link_to category.name, microposts_path(category: category.name), class: "link" %>
-      </li>
-  <% end %>
-
-</ul>
-
-
-<div class = "display6">
-
-
-    <ul class = "list-unstyled">
-    <% @microposts.each do |micropost| %>
-        <li class = "display_micropost3">
-          <div class = "display_micropost">
-            <%= link_to image_tag( micropost.picture.url, alt: micropost.name,
-                        class: "display_micropost1"), micropost_path(micropost) %>
-
-
-            <div class = "header">
-              <h3><%= link_to micropost.name, micropost_path(micropost)%></h3>
-            </div>
-
-            <div class = "header">
-              <ul class = "list-unstyled">
-                <%= image_tag(micropost.user.avatar, class: "avatar2") %>
-                <small> Design by </small><%= micropost.user.name %>
-              </ul>
-            </div>
-
-            <ul class = "list-unstyled header">
-              <li class = "display_icon icon">
-                <% id = micropost.id %>
-                <%= social_share_button_tag(micropost.name) %>
-
-              </li>
-
-            </ul>
-          </div>
+  <ul class="nav nav-tabs ">
+    <li role="presentation" class="<%= 'active' if params[:category].blank? %> "><a href="/">All designs</a></li>
+    <% Category.all.each do |category| %>
+        <li role="presentation" class="hidden-xs <%= 'active' if params[:category] == category.name %>">
+          <%= link_to category.name, microposts_path(category: category.name), class: "link" %>
         </li>
     <% end %>
+
   </ul>
+
+
+    <div class = "display6">
+
+
+        <ul class = "list-unstyled">
+        <% @microposts.each do |micropost| %>
+            <li class = "display_micropost3">
+              <div class = "display_micropost">
+                <%= link_to image_tag( micropost.picture.url, alt: micropost.name,
+                            class: "display_micropost1"), micropost_path(micropost) %>
+
+
+                <div class = "header">
+                  <h3><%= link_to micropost.name, micropost_path(micropost)%></h3>
+                </div>
+
+                <div class = "header">
+                  <ul class = "list-unstyled">
+                    <%= image_tag(micropost.user.avatar, class: "avatar2") %>
+                    <small> Design by </small><%= micropost.user.name %>
+                  </ul>
+                </div>
+
+                <ul class = "list-unstyled header">
+                  <li class = "display_icon icon">
+                    <% id = micropost.id %>
+                    <%= social_share_button_tag(micropost.name) %>
+
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
 </div>
