@@ -19,7 +19,7 @@
         <% @microposts.each do |micropost| %>
             <li class = "display_micropost3">
               <div class = "display_micropost">
-                <%= link_to image_tag( micropost.picture.url, alt: micropost.name,
+                <%= link_to image_tag(micropost.picture.url, alt: micropost.name,
                             class: "display_micropost1"), micropost_path(micropost) %>
 
 

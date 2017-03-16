@@ -9,8 +9,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [1000, 1000]
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
-
+  #storage :fog
+  storage :file
 
    #include CarrierWave::MineTypes
    #process :set_content_type
